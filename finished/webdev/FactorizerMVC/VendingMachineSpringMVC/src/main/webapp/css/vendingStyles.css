@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 9, 2017, 9:42:44 AM
+    Author     : matt
+*/
+
+.slot {
+    border: #130b0b 1px solid;
+    margin: 1px;
+    width: 200px;   
+}
+
+.asButton{
+    text-decoration: none; font: menu;
+    display: inline-block; padding: 2px 8px;
+    background: ButtonFace; color: ButtonText;
+    border-style: solid; border-width: 2px;
+    border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+    font-size: small;
+    width: 95px;
+}
+
+.asButton:active{
+    border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;
+}
+
+.narrowInputDisplay{
+    width: 50px;
+}
+
+#modalButton{
+    position:absolute;
+    top:0px;
+    left:0;
+    background: transparent;
+    border: none !important;
+    width:170px;
+    font-size:0;
+    color:white;
+}

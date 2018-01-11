@@ -1,0 +1,41 @@
+#A user must be able to record a superhero/supervillain sighting for a particular location and date.
+		
+	//SuperPerson service methods	
+			
+	addSuperPersonToSighting(superPersonId, int sightingId)
+	addSuperPersonToSighting(SuperPerson superPerson, Sighting sighting)
+		
+#The system must be able to report all of the superheroes sighted at a particular location.
+	SQL_LIST_SUPERPERSONS_BY_LOCATION	
+
+#The system must be able to report all of the locations where a particular superhero has been seen.
+	SQL_LIST_LOCATIONS_BY_SUPERPERSON
+
+#The system must be able to report all sightings (hero and location) for a particular date.
+	SQL_LIST_SUPERPERSON_SIGHTINGS_BY_DATE
+#The system must be able to report all of the members of a particular organization.
+	SQL_LIST_SUPERPERSONS_BY_ORGANIZATION
+#The system must be able to report all of the organizations a particular superhero/villain belongs to
+	SQL_LIST_ORGANIZATIONS_BY_SUPERPERSON
+
+#Methods
+each dao needs crud
+
+the sql statements each need a new method
+eg in superPersonsDao, need getSuperPersonsByOrganzation
+
+Unit tests must fully test all create, read, update, and delete functionality for all entities and test all many-to-many and one-to-many relationships in the database.
+
+//what does it mean to test a relationship? since we are doing this the simpler way, i guess it just means we need to 
+test the service layer methods too
+
+
+
+
+
+
+
+
+
+
+

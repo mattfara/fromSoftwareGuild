@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<!-- Useful stuff
+
+	1. Show Google maps
+		Steps
+			1. Find the address on Google maps
+			2. Click Menu at top left
+			3. Click Share or Embed map
+			4. Choose embed from top menu
+			5. Choose size and copy html	
+			6. Place it where you need it -- see below for span
+
+			
+-->
+
+<!-- Difficulties
+
+	1. Not sure what difference is between breaking up a boostrap row with col-xx-# and span#, since span# doesn't have the screen size specified.....
+	
+
+
+-->
+
+
+<html>
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    
+    <link href="styles/restaurantStyles.css" rel="stylesheet">
+    
+    
+    <!-- blocked out for bootstrap testing
+    <style>
+         {font-family: Georgia;}
+        table {border: 1px solid red;}
+    </style>
+-->
+
+<!-- I'd like to have an autofocus on name to start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script> 
+	//purpose: to autofocus on first input in form upon loading
+	//how can I do this with jquery? MAYBE NO NEED TO -- JUST INCLUDE THE AUTOFOCUS KEYWORD INSIDE INPUT TAG
+/*
+	function autofocus(){
+	//	document.forms["contact-form"]["name"].focus();
+	}
+
+	$(document).ready(function(){
+		
+	)};
+*/	
+
+//purpose: to stop the submission reload of page upon clicking submit button
+//must identify the form that contains the submit button, not the button itself
+	$(document).ready(function(){
+		$("#contact-form").submit(function(e){
+			e.preventDefault();			
+			alert("We'll get back to you....");			
+		});
+	});
+
+</script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+    <header>
+        <!--BEGIN BANNER-->
+    <h1 class="banner">NightHawks</h1>
+    <nav class="navbar navbar-inverse">  
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"> NightHawks </a>
+            <!--this spot not good for order form button-->
+        </div>
+        <div class="container-fluid">
+            <a href="order.html" id="order-btn" class="btn btn-warning navbar-btn navbar-right">Order Online</a>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"> <span class="glyphicon glyphicon-home"> Home </span></a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li class="active"><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <!--this line not a good spot for order form button-->
+        </div>
+        
+        <div class="jumbotron">
+  		<div class="container text-center">
+  			<h1 id="jumbo-header">This Month</h1>
+              
+              <div class="row">
+  				<div class="col-md-4">
+                      <h2 class="special-header">The Witching Hour</h2>
+  					<blockquote>
+  						<p>Come at 3am with a witch-related item, get half off any menu item</p>
+  						
+  					</blockquote>
+  				</div>
+  				<div class="col-md-4">
+                    <h2 class="special-header">Midnight Snacks</h2>  
+                    <blockquote>
+  						<p>Bring a snack from home at midnight to trade for any item on our snack menu</p>
+  						
+  					</blockquote>
+  				</div>
+  				<div class="col-md-4">
+                    <h2 class="special-header">Dieter's Delight</h2>  
+                    <blockquote>
+  						<p>Bring proof that you have lost weight in the past month, and we will give you half off any salad</p>
+  						
+  					</blockquote>
+  				</div>
+  			</div><!-- End row -->
+
+  		</div><!-- End container -->
+  	</div><!-- End jumbotron-->
+    </nav> <!--End Navbar-->
+    </header>
+
+<!--WANT ALL OF THIS IN A ROW: THE FORM AND THE MAP-->
+<div class="row">
+    <div class="col-md-4">
+<!--FORM BEGIN-->
+<form action="#" method="POST" class="form" id="contact-form" name="contact-form">
+<div class="form-group">
+    <label id="fullName" for="name"> Name:</label>
+    <input class="form-control" id="name" name="name" type="text" autofocus>
+</div>
+<div class="form-group">
+    <label id="customerEmail" for="email"> Email:</label>
+    <input class="form-control" id="email" name="email" type="text">
+</div>
+<div class="form-group">
+    <label id="customerPhone" for="phone"> Phone: </label>
+    <input class="form-control" id="phone" name="phone" type="text">
+</div>
+<div class="form-group">
+    <label id="reason" name="ReasonForInquiry"> Reason for Inquiry</label>
+    <select name="ReasonDrop">
+        <option> Catering</option>
+        <option> Private Party</option>
+        <option> Feedback</option>
+        <option> Other</option>
+    </select>
+</div>
+<div class="form-group">
+    <label id="AdditionalInfo" name="Info"> Additional Info:</label>
+    <textarea></textarea>
+</div>
+<div class="form-group">
+    <label id="beenBefore" name="Before"> Have you been to this restaurant?</label>
+    <input name="previous" type="radio" value="No"> No </input>
+    <input name="previous" type="radio" value="Yes" checked> Yes </input>
+</div>
+<div class="form-group">
+    <label id="daysToContact" name="days"> Best days to contact you:</label>
+    <input name="dayM" type="checkbox" value="M"> M
+    <input name="dayT" type="checkbox" value="T"> T
+    <input name="dayW" type="checkbox" value="W"> W
+    <input name="dayTh" type="checkbox" value="Th"> Th
+    <input name="dayF" type="checkbox" value="F"> F
+</div>
+<div>
+    <button class="btn btn-secondary" type="submit"> Submit </button>
+</div>
+
+</form><!--FORM END-->
+
+</div> <!--FIRST COL END -->
+<div class="col-md-4">
+<!--GOOGLE MAP BEGINNING-->
+<div class="container">
+	<div class="row-fluid"> <!-- I guess this is why they are stacked vertically on page -->
+        <div class="span8">
+        	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.583395646992!2d-73.99038888459391!3d40.74919167932784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9307d2691%3A0x5577c8273a9c03ee!2sBroadway+%26+6th+Ave%2C+New+York%2C+NY+10001!5e0!3m2!1sen!2sus!4v1502376159603" width="310" height="170" frameborder="0" style="border:0" allowfullscreen></iframe>
+    	</div>
+    	
+      	<div class="span4">
+    		<h2>Address</h2>
+    		<address>
+    			<strong>NightHawks</strong><br>
+    			Broadway and 6th Ave<br>
+    			New York, New York<br>
+    			10001<br> 			
+    			<abbr title="Phone">P:</abbr> 212 555 5555
+    		</address>
+    	</div>
+    </div>
+</div>    
+</div> <!--SECOND COL END-->
+<div class="col-md-4">
+    <img class="img-responsive img-circle" src="images/nighthawks-logo.jpg" >
+</div>
+</div> <!--ROW END -->
+</body>
+</html>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:database-work/DVDLibrary-ver2/tinymce/src/main/webapp/META-INF/context.xml
+<Context path="/tinymce"/>
+=======
+<Context path="/BessieBlog" />
+>>>>>>> f3db16cae3ac11dc43d808bce975167fc85a1faa:BessieBlog/src/main/webapp/META-INF/context.xml

@@ -1,0 +1,229 @@
+
+<!-- 5/27/17 adding js carousel from bootstrap to
+this home page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>    
+    
+    <link href="styles/restaurantStyles.css" rel="stylesheet">
+     
+<!-- added script tags to call jquery and bootstrap js data -->
+      <!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<link href="css/anythingslider.css" rel="stylesheet">
+
+<style type="text/css">
+/* New in version 1.7+ */
+ #slider3 {
+  width: 500px;
+  height: 400px;
+  list-style: none;
+ }
+ /* images with caption */
+ #slider3 img {
+  width: 100%;
+  height: 100%;
+ }
+ /* position the panels so the captions appear correctly */
+ #slider3 .panel { position: relative; }
+ /* captions */
+ #slider3 .caption-top, #slider3 .caption-right,
+ #slider3 .caption-bottom, #slider3 .caption-left {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+  opacity: .8;
+  filter: alpha(opacity=80);
+ }
+ /* Top caption - padding is included in the width (480px here, 500px in the script), same for height */
+ #slider3 .caption-top {
+  left: 0;
+  top: 0;
+  width: 480px;
+  height: 30px;
+ }
+ /* Right caption - padding is included in the width (130px here, 150px in the script), same for height */
+ #slider3 .caption-right {
+  right: 0;
+  bottom: 0;
+  width: 130px;
+  height: 180px;
+ }
+ /* Bottom caption - padding is included in the width (480px here, 500px in the script), same for height */
+ #slider3 .caption-bottom {
+  left: 0;
+  bottom: 0;
+  width: 480px;
+  height: 30px;
+ }
+ /* Left caption - padding is included in the width (130px here, 150px in the script), same for height */
+ #slider3 .caption-left {
+  left: 0;
+  bottom: 0;
+  width: 130px;
+  height: 180px;
+ }
+ /* Caption close button */
+ .caption-top .close, .caption-right .close,
+ .caption-bottom .close, .caption-left .close {
+  font-size: 80%;
+  cursor: pointer;
+  float: right;
+  display: inline-block;
+ }
+</style>
+
+<noscript>You're only hurting yourself by not enabling scripts....</noscript>
+
+</head>
+<!--                BODY                    -->
+<div class="container">
+<body>
+  <header>
+    <img id="logo" src="images/nighthawks-logo.jpg" alt="Night Hawks logo">
+
+  </header>
+  
+  <h2 class="col-md-6 col-offset-6">The Latest</h2>
+
+  <!-- CAROUSEL BEGIN-->
+<ul id="slider3">
+  <li>
+   <div class="caption-top">
+    We're opening a new location! See address below
+   </div>
+   <img src="images/caro-1.jpg" alt="">
+  </li>
+  <li>
+   <img src="images/fall.jpg" alt="">
+   <div class="caption-left">
+    Stay tuned for our seasonal menu
+   </div>
+  </li>
+  <li>
+   <img src="images/aguardiente.jpg" alt="">
+   <div class="caption-top">
+    The Drink of the Month is the SG Special Brew
+   </div>
+  </li>
+ </ul>
+<!-- CAROUSEL END-->
+
+
+ <!--BUTTONS-->
+  <div> 
+    <a href="index.html"><img class="menu-button" src="images/nighthawks-home-button.jpg"></a>
+    <a href="menu.html"><img class="menu-button" src="images/nighthawks-menu-button.jpg"></a>
+    <a href="contact.html"><img class="menu-button" src="images/nighthawks-contact-button.jpg"></a>
+  </div>
+  <!-- BUTTONS END -->
+  <footer>
+    <img src="images/nighthawks-footer.jpg" alt="Night Hawks footer">
+  </footer>
+
+<!--put this at bottom -->
+<script>
+// Load this when the DOM is ready
+$(function(){
+  // You used .myCarousel here. 
+  // That's the class selector not the id selector,
+  // which is #myCarousel
+  $('#myCarousel').carousel();
+});
+</script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- jQuery -->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+ <!-- Anything Slider optional plugins -->
+ <script src="js/jquery.easing.1.2.js"></script>
+
+ <!-- Anything Slider -->
+ 
+ <script src="js/jquery.anythingslider.min.js"></script>
+
+ <!-- Anything Slider optional FX extension -->
+ <script src="js/jquery.anythingslider.fx.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+ $('#slider3')
+  .anythingSlider()
+  /* this code will make the caption appear when you hover over the panel
+    remove the extra statements if you don't have captions in that location */
+  .find('.panel')
+    .find('div[class*=caption]').css({ position: 'absolute' }).end()
+    .hover(function(){ showCaptions( $(this) ) }, function(){ hideCaptions( $(this) ); });
+
+  showCaptions = function(el){
+    var $this = el;
+    if ($this.find('.caption-top').length) {
+      $this.find('.caption-top')
+        .show()
+        .animate({ top: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-right').length) {
+      $this.find('.caption-right')
+        .show()
+        .animate({ right: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-bottom').length) {
+      $this.find('.caption-bottom')
+        .show()
+        .animate({ bottom: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-left').length) {
+      $this.find('.caption-left')
+        .show()
+        .animate({ left: 0, opacity: 1 }, 400);
+    }
+  };
+  hideCaptions = function(el){
+    var $this = el;
+    if ($this.find('.caption-top').length) {
+      $this.find('.caption-top')
+        .stop()
+        .animate({ top: -50, opacity: 0 }, 350, function(){
+          $this.find('.caption-top').hide(); });
+    }
+    if ($this.find('.caption-right').length) {
+      $this.find('.caption-right')
+        .stop()
+        .animate({ right: -150, opacity: 0 }, 350, function(){
+          $this.find('.caption-right').hide(); });
+    }
+    if ($this.find('.caption-bottom').length) {
+      $this.find('.caption-bottom')
+        .stop()
+        .animate({ bottom: -50, opacity: 0 }, 350, function(){
+          $this.find('.caption-bottom').hide(); });
+    }
+    if ($this.find('.caption-left').length) {
+      $this.find('.caption-left')
+        .stop()
+        .animate({ left: -150, opacity: 0 }, 350, function(){
+          $this.find('.caption-left').hide(); });
+    }
+  };
+
+  // hide all captions initially
+  hideCaptions( $('#slider3 .panel') );
+});
+</script>
+
+
+</body>
+</div>
+</html>

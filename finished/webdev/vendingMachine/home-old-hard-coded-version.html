@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vending Machine</title>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css"
+              rel="stylesheet">
+              <link href="css/vending-styles.css"
+                    rel="stylesheet">
+              <!-- why did these need to be moved from the bottom?-->
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/home.js"></script>
+    </head>
+
+
+    <body>
+        <h1 class="text-center"> Vending Machine </h1>
+        <hr>
+        <div class="container" id="main-container">
+          <div class="row" id="main-row"> <!-- MAIN ROW-->
+
+
+
+            <div class="col-md-9" id="main-product-col"><!-- MAIN PRODUCT COL -->
+
+              <div class="row" id="top-product-row"><!-- TOP PRODUCT ROW -->
+                <div class="col-md-4" id="row1-col1"><!-- ROW1-COL1 -->
+                  <a onclick="processItemClick();">
+                    <div class="product" id="product1"><!-- PRODUCT 1-->
+                    <p class="idNum">1</p>
+
+                    <div class="row text-center prodName">Snickers</div>
+                    <div class="row text-center prodPrice">$1.85</div>
+                    <div class="row text-center prodQuantity"> Quantity Left: 3</div>
+                  </div>
+                </a>
+                </div> <!-- end row1-square1 -->
+                <div class="col-md-4" id="row1-col2"><!-- ROW1-COL2 -->
+                  <a><div class="product" id="product2"><!-- PRODUCT 2-->
+                    <p>2</p>
+                  </div><!--end product2--></a>
+                </div> <!-- end row1-square1 -->
+                <div class="col-md-4" id="row1-col3"><!-- ROW1-COL3 -->
+                  <a><div class="product" id="product3"><!-- PRODUCT 3-->
+                    <p>3</p>
+                  </div><!--end product3--></a>
+                </div> <!-- end row1-square1 -->
+              </div><!-- end top product row-->
+              <div class="row" id="middle-product-row"><!-- MIDDLE PRODUCT ROW -->
+                <div class="col-md-4" id="row2-col1"><!-- ROW2-COL1 -->
+                  <a><div class="product" id="product4"><!-- PRODUCT 4-->
+                    <p>4</p>
+                  </div><!--end product4--></a>
+                </div> <!-- end row1-square1 -->
+                <div class="col-md-4" id="row2-col2"><!-- ROW2-COL2 -->
+                  <a><div class="product" id="product5"><!-- PRODUCT 5-->
+                    <p>5</p>
+                  </div><!--end product5--></a>
+                </div> <!-- end row1-square1 -->
+                <div class="col-md-4" id="row2-col3"><!-- ROW2-COL3 -->
+                  <a><div class="product" id="product6"><!-- PRODUCT 6-->
+                    <p>6</p>
+                  </div><!--end product6--></a>
+                </div> <!-- end row1-square1 -->
+              </div> <!-- end middle product row -->
+              <div class="row" id="bottom-product-row"><!-- BOTTOM PRODUCT ROW -->
+                <div class="col-md-4" id="row3-col1"><!-- ROW3-COL1 -->
+                  <a><div class="product" id="product7"><!-- PRODUCT 7-->
+                    <p>7</p>
+                  </div><!--end product7--></a>
+                </div> <!-- end row1-square1 -->
+                <div class="col-md-4" id="row3-col2"><!-- ROW3-COL2 -->
+                  <a><div class="product" id="product8"><!-- PRODUCT 8-->
+                    <p>8</p>
+                  </div><!--end product8--></a>
+                </div> <!-- end row1-square1 -->
+                <div class="col-md-4" id="row3-col3"><!-- ROWw3-COL3 -->
+                  <a><div class="product" id="product9"><!-- PRODUCT 9-->
+                    <p>9</p>
+                  </div><!--end product9--></a>
+                </div> <!-- end row1-square1 -->
+              </div><!-- end bottom product row -->
+            </div><!-- end main product col-->
+
+
+
+            <div class="col-md-3" id="main-control-col"><!-- MAIN CONTROL COL -->
+              <!-- should have three rows -->
+              <div class="row" id="money-in-row"><!-- MONEY IN ROW -->
+                <div class="row" id="money-in-text"><!-- MONEY IN TEXT-->
+                  Total $ In
+                </div><!-- end money in text -->
+                <div class="row" id="money-in-output"><!-- MONEY IN OUTPUT-->
+                  <input type="text" id="money-in-view"></input>
+                </div><!-- end money in output -->
+                <div class="row" id="add-money-dollar-quarter-row"><!-- ADD DOLLAR QUARTER ROW-->
+                  <div class="col-md-6" id="dollar-col"><!-- DOLLAR COL -->
+                    <button class="btn btn-default"
+                            type="button"
+                            id="add-dollar"
+                            onclick="addDollar();"
+                            >
+                      Add Dollar
+                    </button>
+                  </div> <!-- end dollar col -->
+                  <div class="col-md-6" id="quarter-col"><!-- QUARTER COL -->
+                    <button class="btn btn-default"
+                            type="button"
+                            id="add-quarter"
+                            onclick="addQuarter();">
+                      Add quarter
+                    </button>
+                  </div> <!-- end quarter col -->
+                </div><!-- end add dollar quarter row -->
+                <div class="row" id="add-money-dime-nickel-row"><!-- ADD DIME NICKEL ROW-->
+                  <div class="col-md-6" id="dime-col"><!-- DIME COL -->
+                    <button class="btn btn-default"
+                            id="add-dime"
+                            type="button"
+                            onclick="addDime();"
+                            >
+                      Add Dime
+                    </button>
+                  </div> <!-- end dime col -->
+                  <div class="col-md-6" id="nickel-col"><!-- NICKEL COL -->
+                    <button class="btn btn-default"
+                            id="add-nickel"
+                            type="button"
+                            onclick="addNickel();"
+                            >
+                      Add Nickel
+                    </button>
+                  </div> <!-- end nickel col -->
+                </div><!-- end add dime nickel row -->
+              </div><!-- end money in row -->
+              <hr>
+              <div class="row" id="messages-row"><!-- MESSAGES ROW -->
+                <!-- needs four rows -->
+
+                <form role="form" id="purchase-form">
+                  <div class="form-group">
+                    <label for="messages-view"> Messages </label>
+                    <input type="text" id="messages-view"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="current-item">Item: </label>
+                    <input type="text"
+                          class="form-control"
+                          id="current-item" required/>
+                          <button type="button"
+                                  class="btn btn-default"
+                                  id="purchase-item-button"
+                                  onclick="purchaseItem();"
+                                  > Make Purchase </button>
+                  </div
+                </form>
+<!--
+                <div class="row">
+                  Messages
+                </div>
+                <div class="row">
+                  <input type="text" id="messages-view"/>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label for="current-item">Item: </label>
+                    <input type="text" class="form-control" id="current-item" required/>
+                  </div>
+                </div>
+                <div class="row" id="purchase-button-row">
+                  <button type="button" class="btn btn-default"> Make Purchase </button>
+                </div>
+-->
+
+
+                </div><!-- end messages row -->
+<!-- END MESSAGES PORTION -->
+
+              <hr>
+              <div class="row" id="change-row"><!-- CHANGE ROW -->
+                <!--needs three rows-->
+                <div class="row">Change</div>
+                <div class="row">
+                  <input type="text" id="change-return" readonly="true"></input>
+                </div>
+                <div class="row">
+                  <button type="button"
+                          class="btn btn-default"
+                          id="return-change-button"
+                          onclick="returnChange();"
+                          >
+                          Change Return
+                        </button>
+                </div>
+              </div><!-- end change row -->
+            </div> <!-- end main control col -->
+          </div> <!-- end main row -->
+        </div> <!-- end main container -->
+
+    </body>
+</html>

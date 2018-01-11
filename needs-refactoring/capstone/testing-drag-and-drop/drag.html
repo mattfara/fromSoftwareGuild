@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+ body, html {
+background-color:#CCFFCC; 
+font-family:sans-serif; 
+color:#330033; 
+text-align:center;
+}
+[draggable] {
+user-select: none;
+}
+</style>
+<script type="text/javascript">
+var source;
+function dragStarted(evt){
+//start drag
+source=evt.target;
+//set data
+evt.dataTransfer.setData("text/plain", evt.target.innerHTML);
+//specify allowed transfer
+evt.dataTransfer.effectAllowed = "move";
+} 
+
+function draggingOver(evt){
+//drag over
+evt.preventDefault();
+//specify operation
+evt.dataTransfer.dropEffect = "move";
+}
+
+function dropped(evt){
+//drop
+evt.preventDefault();
+evt.stopPropagation();
+//update text in dragged item
+source.innerHTML = evt.target.innerHTML;
+//update text in drop target
+evt.target.innerHTML = evt.dataTransfer.getData("text/plain");
+}
+
+</script>
+</head>
+<body>
+ <p>
+Sort these into your order of preference:
+</p>
+<ul >
+<div style="display:inline" id="1"><li  draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)">Home</li></div>
+<div style="display:inline" id="2"><li draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)">Blogs</li></div>
+<div style="display:inline" id="3"><li draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)">About Me</li></div>
+<div style="display:inline" id="4"><li draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)">Links</li></div>
+</ul>
+</body>
+</html>

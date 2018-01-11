@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.sg.contactlistspringmvc.dao.ContactListDaoTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.02 sec - in com.sg.contactlistspringmvc.dao.ContactListDaoTest

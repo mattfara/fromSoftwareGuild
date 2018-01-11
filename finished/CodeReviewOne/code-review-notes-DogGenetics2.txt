@@ -1,0 +1,9 @@
+Code Review notes for DogGenetics2
+
+//1 aside from the first dog breed, each subsequent breed's percentage is constrained by the previous dog's percentage. I assumed that no dog is a true pure bred, since genetics tests can reach back millenia, when the notion of a pure bred didn't exist. So I assumed that no dog could score 100%, so the highest percentage any dog could get would be 96%, or 100-4. This allows for each subsequent dog to get at least 1% each. Again, the random method will return some number between 0 and the argument it is passed, so I need to add one to whatever the result is to actually get a value of at least one or at most 96. 
+
+Subsequent dogs can initialize to any number from 1 to 100 minus the previous dog's percentage. This stops the values from ever summing to over 100. 
+
+/* Nick had a better idea for handling the subtraction you see in this step. It allows for expansion to more than 5 dogs.
+
+

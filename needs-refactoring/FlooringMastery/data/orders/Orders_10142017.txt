@@ -1,0 +1,2 @@
+OrderNumber,CustomerName,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+2,Wise,OH,6.25,Wood,1000,5.15,4.75,5150.00,4750.00,618.750000,10518.750000

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- commenting out original css stylesheet to better see impact of bootstrap
+    <link href="styles/restaurantStyles.css" rel="stylesheet">
+    -->
+    
+    <!-- blocked out for bootstrap testing
+    <style>
+         {font-family: Georgia;}
+        table {border: 1px solid red;}
+    </style>
+-->
+
+</head>
+
+<body>
+    <div class="container-fluid">
+    <header>
+    <h1 class="banner">NightHawks</h1>
+    <nav class="navbar navbar-inverse">  
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"> NightHawks </a>
+        </div>
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"> <span class="glyphicon glyphicon-home"> Home </span></a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="jumbotron">
+            <h1>New location coming August 22</h1>
+            <p>one block from the Empire State Building</p>
+        </div>
+    </nav>
+    </header>
+    <div>
+        <h2>NightHawks strives to feed you at any hour, any day. Come see our selection of NYC art.</h2>
+<form action="#" method="POST" class="form">
+<div class="form-group">
+    <label id="fullName" name="name"> Name:</label>
+    <input class="form-control" id="name" name="name" type="text">
+</div>
+<div class="form-group">
+    <label id="customerEmail" name="email"> Email:</label>
+    <input class="form-control" id="email" name="email" type="text">
+</div>
+<div class="form-group">
+    <label id="customerPhone" name="phone"> Phone: </label>
+    <input class="form-control" id="phone" name="phone" type="text">
+</div>
+<div class="form-group">
+    <label id="reason" name="ReasonForInquiry"> Reason for Inquiry</label>
+    <select name="ReasonDrop">
+        <option> Catering</option>
+        <option> Private Party</option>
+        <option> Feedback</option>
+        <option> Other</option>
+    </select>
+</div>
+<div class="form-group">
+    <label id="AdditionalInfo" name="Info"> Additional Info:</label>
+    <textarea></textarea>
+</div>
+<div class="form-group">
+    <label id="beenBefore" name="Before"> Have you been to this restaurant?</label>
+    <input name="previous" type="radio" value="No" checked> No </input>
+    <input name="previous" type="radio" value="Yes"> Yes </input>
+</div>
+<div class="form-group">
+    <label id="daysToContact" name="days"> Best days to contact you:</label>
+    <input name="dayM" type="checkbox" value="M"> M
+    <input name="dayT" type="checkbox" value="T"> T
+    <input name="dayW" type="checkbox" value="W"> W
+    <input name="dayTh" type="checkbox" value="Th"> Th
+    <input name="dayF" type="checkbox" value="F"> F
+</div>
+<div>
+    <input id="SubmitButton" name="button" type="submit" value="Send Request">
+</div>
+
+</form>
+    </div>
+<div class="container">
+	<div class="row-fluid">
+        <div class="span8">
+        	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.583395646992!2d-73.99038888459391!3d40.74919167932784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9307d2691%3A0x5577c8273a9c03ee!2sBroadway+%26+6th+Ave%2C+New+York%2C+NY+10001!5e0!3m2!1sen!2sus!4v1502376159603" width="310" height="170" frameborder="0" style="border:0" allowfullscreen></iframe>
+    	</div>
+    	
+      	<div class="span4">
+    		<h2>Address</h2>
+    		<address>
+    			<strong>NightHawks</strong><br>
+    			Broadway and 6th Ave<br>
+    			New York, New York<br>
+    			10001<br> 			
+    			<abbr title="Phone">P:</abbr> 212 555 5555
+    		</address>
+    	</div>
+    </div>
+</div>    </div>
+</body>
+</html>

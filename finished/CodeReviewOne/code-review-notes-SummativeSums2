@@ -1,0 +1,19 @@
+Code Review notes for SummativeSums2
+
+//1 this is the class block for the entire class. The main method block and the sumArray method block are nested inside this block. 
+
+//2 The main method return type is void as usual, so it doesn't return anything. It just acts as a starting point for the program. The variables declared and assigned inside of it are local to main. They can't be called outside of the main method, since they'd be out of scope. 
+
+//3 Here I declare and assign a multidimensional array, identified as dataSet. [Draw the structure on board]
+
+//4 This for loop iterates over each element in the array. Its initialization is consists of declaring an integer variable i and assigning it to zero. Termination will occur once i is no longer less than the length of the dataSet. The length of the dataSet will be three in this case. It's like asking, how many floors does this building have? The correct answer would be 9, even though each floor itself consists of many other parts. So too does this array contain three elements, each of which is itself an array with its own number of elements. Finally, i increments using the unary ++ operator at each iteration's end. 
+
+//5 at the beginning of each iteration of this for loop, we declare and assign the integer called sumOfCurrentSet to equal the value that the sumArray returns when the array corresponding to i inside of the dataSet is summed. This all happens through the method below. You can see the method signature consists of the name sumArray and the parameter list takes an array, here one of the arrays inside the multidimensional dataSet array. So if i is zero, the very first array contained in the array of integers will be shot into the method below. 
+
+
+//# Since I wanted the integer i to serve as the index pointing to each array in dataSet and to serve as output to the console, I needed to add 1 to i in each case. This way array at index of zero is displayed as #1 in the output.
+
+
+//6 This is the method that takes an array of integers and sums them. The method declaration consists of a public access modifier, the static keyword, a return type of int, the method name of sumArray, and a parameter list containing one parameter, an array of integers identified as array. So the target of the method will be any array of integers that are passed as an argument to the method.
+
+//7 This is an enhanced for loop. Each integer inside the array will in turn be associated with the variable num, so essentially, this reads "for each integer in in the array, run the follow block of code. That codes simply consists of adding that integer to the integer called sum. When that block finishes, we return the integer held in sum. Sum is only in the scope of this method, so we need to return that integer back to the place that called it, the main method, where it is stored in the variable sumOfCurrentSet. 

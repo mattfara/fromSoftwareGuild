@@ -1,0 +1,53 @@
+my queries
+----------
+
+1. show multiple addons of the same type appearing on the bill for different days
+
+
+the bill should contain multiple add ons
+some of the add ons should be of the same type but on different dates
+
+Tables needed:
+Columsn I want: room# (in room), add ons (in , date (should all be part of bill and bill details)
+**do we need a quantity field for add on, just like we did for amenity?**
+
+
+
+SELECT r.BranchID, r.number, rat.roomaddontypename, ra.dateordered 
+#want to keep this as small as possible to keep data entry as small as possible -- if we can show these columns together, we can show them together in the context of a bill (detail)....
+
+FROM RoomAddOn ra
+Inner join RoomAddOnType rat ON rat.RoomAddOnTypeID = ra.RoomAddOnTypeID
+Inner join Room_Reservation rr ON rr.Room_ReservationID = ra.Room_ReservationID #maybe this doesn't make sense -- what if the reservationw as cancelled? why would you have add on info on a reservation anyway? what if you changed your mind after
+you got to the hotel? Or are we just using the reservation to find the bill? If a bill does exist for that reservation, it's ok. just need to write data that meets this condition.
+Inner join Room r ON r.RoomID = rr.RoomID
+
+degrees of separation btw r and rat: 
+btw r and ra: separated by room_reservation: 2
+btw ra and rat: 1 (share RoomAddOnTypeID
+
+
+
+2. show that a room can have multiple amenities, some of the same type #need to consider date? no, since RoomAmenity is tied to RoomType -- see RoomType_RoomAmenity bridge table
+
+show a room with all the amenities it contains
+tables needed: Room (Number, BranchID), RoomAmenity (Quantity), RoomAmenityType (RoomAmenityTypeName), 
+
+SELECT r.BranchID, r.Number, ram.Quantity, ramt.RoomAmenityTypeName
+FROM Room r
+Inner join RoomType rt ON rt.RoomTypeID = r.RoomTypeID
+Inner join RoomType_RoomAmenity rt_ram ON rt_ram.RoomTypeID = rt.RoomTypeID
+Inner join RoomAmenity ram ON ram.RoomAmenityID = rt_ram.RoomAmenityID
+Inner join RoomAmenityType ramt ON ramt.RoomAmenityTypeID = ram.RoomAmenityTypeID
+WHERE ram.Quantity>1
+
+
+3. show that room type can change
+
+a room with its type, then the same room with a differnet type
+
+SELECT r.BranchID, r.Number, CONCAT(`from `,rt.StartDate, ` to `, rt.EndDate) AS `Dates as Type`, rt.RoomTypeName
+From Room r
+Inner join RoomType rt ON r.RoomTypeID = rt.RoomTypeID
+
+#Can I combine #2 and #3 into one bigger query? probably clearer to leave separated, but does room type change if amenity quantity change?

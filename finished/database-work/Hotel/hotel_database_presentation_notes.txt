@@ -1,0 +1,66 @@
+Plan for presenting database
+----------------------------
+
+draft 1
+1. pre-work
+	a. working as a group again
+		-since flooring mastery
+		-looking forward -- more to say about group work later				
+	b. planning the system
+		-show last working draft of 		
+	c. knowign where to draw the line for a minimum viable product
+
+2. the erd
+	a. choosing a place to start
+		-Gordian knot
+		-"Branch"
+			*many things depend on the branch
+				-room number is meaningful in the context of a branch
+	b. show a few relationships btw tables and how to interpret
+			*showing why tables are made
+				reason 0: it's clearly its own entity
+					eg room
+				reason 1: more than one table depends on a table attribute
+					eg address -- could leave address in as an attribute of 
+								  person and branch separately, but then you're
+								  duplicating data
+				reason 2: a table attribute has attributes that are meaningful
+					eg room and roomtype		
+				reason 3: a table can be made from which others will inherit attributes
+					eg Person and Customer/Guest/Employee
+				reason 4: keeping historical data
+					eg 
+				reason 5: bridging a many to many relationship
+					
+	c. trace a query
+		-
+3. the queries
+	a. show three queries -- #4, #8, #9
+	b. describe some of the problems we realized too late
+4. what to do better next time
+	a. prep work
+		-not starting together
+			* ownership of the prep work --> familiarity with relationships
+		-not knowing the work would be so rigorous until after most of the planning was done
+		-not using the whiteboard to show connection
+			*possibly using Workbench from the beginning to show connections?
+		-not researching the domain more thoroughly (tax, reservations, bills -- what info they contain?)
+			*get samples of each thing, or an entire sample database if possible
+		
+	b. planning the work flow
+		-talking through the requirements of the project
+		-knowing which parts of our work need to be the same
+			*analyzing the project for spots where we need to work 
+			 together and where we can split parts up
+				-splitting prep work
+				-splitting data generation
+				-splitting query writing
+		-mini code/work reviews
+			*everybody does every type of work, just less of it
+			*demonstrate our understanding to each other
+			*practice presentation
+
+			
+
+		
+	

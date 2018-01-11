@@ -1,0 +1,28 @@
+questions about vue.js
+
+DISPLAY CONTROL
+
+
+
+1. do i need to keep the display="style:none;" in the forms and tables?
+	i can find out right after I use the v-on
+	
+	strategy -- set up some data in the vue instance falses initially, and set up v-show on that variable
+	on click for the buttons switch the boolean!
+
+	works for one case - displaying a form
+
+	NOTE: anything that gets touched by Vue.js needs to be i the div specified in the el property
+
+	we need a computed property -- when one of these fuckin buttons is clicked, all of the boolean data associated to the button is switched to true, but all others are switched to false. 1. set all to false, 2. set the one passed in as true
+
+	DEBUGGING TIP: look for missing commas between objects, etc
+
+
+2. how do i add attributes to divs -- like "open" to dialog
+
+AJAX-ish shit
+
+
+
+

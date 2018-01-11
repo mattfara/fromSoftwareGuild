@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<!-- Useful stuff
+
+	1. popover
+		see the w3 schools tutorial: https://www.w3schools.com/bootstrap/bootstrap_popover.asp
+
+
+-->
+
+<!-- Difficulties
+	1. Placement of order form button - it doesn't seem to sit quite right in the navbar frame -- I'd want it to sit a little further from the border
+	2. can't put comments inside an element
+-->
+
+
+<html>
+
+<head>
+    <title>Menu</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></script>    
+    <link href="styles/restaurantStyles.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <div class="container-fluid"> <!--not sure difference btw "container" and "container-fluid" yet-->
+    <header>
+        <!--BEGIN BANNER-->
+    <h1 class="banner">NightHawks</h1>
+    <nav class="navbar navbar-inverse"> <!--deleting the first part of class, "navbar" leads to the bottom border of the navbar disappearing-->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"> NightHawks </a> <!-- deleting "navbar-brand" leads to top left corner font reverting to crap-->
+            <!--this spot not good for order form button-->
+        </div>
+        <div class="container-fluid">
+            <a href="order.html" id="order-btn" class="btn btn-warning navbar-btn navbar-right">Order Online</a> <!--deleting "btn" shrinks the button to a plain rectangle;..btn-warning removes background color and shape, just leaves behind font; .."navbar-btn" sticks it near border edge, removes centerint/padding; .."navbar-right" lets button float next to list items-->
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"> <span class="glyphicon glyphicon-home"> Home </span></a></li>
+                <li class="active"><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <!--this line not a good spot for order form button-->
+        </div>
+        
+        <div class="jumbotron"> <!--..leaves behind the whole banner filled with other elements, background is not differentiated -->
+  		<div class="container text-center"> 
+  			<h1 id="jumbo-header">This Month</h1>
+              
+              <div class="row">
+  				<div class="col-md-4">
+                      <h2 class="special-header">The Witching Hour</h2>
+  					<blockquote>
+  						<p>Come at 3am with a witch-related item, get half off any menu item</p>
+  						
+  					</blockquote>
+  				</div>
+  				<div class="col-md-4">
+                    <h2 class="special-header">Midnight Snacks</h2>  
+                    <blockquote>
+  						<p>Bring a snack from home at midnight to trade for any item on our snack menu</p>
+  						
+  					</blockquote>
+  				</div>
+  				<div class="col-md-4">
+                    <h2 class="special-header">Dieter's Delight</h2>  
+                    <blockquote>
+  						<p>Bring proof that you have lost weight in the past month, and we will give you half off any salad</p>
+  						
+  					</blockquote>
+  				</div>
+  			</div><!-- End row -->
+
+  		</div><!-- End container -->
+  	</div><!-- End jumbotron-->
+    </nav> <!--End Navbar-->
+    </header>
+
+
+    <!--BEGIN MENU-->
+    <div class="container-fluid">
+<table id="menu" class="table">
+    <div class="text-align">
+    <h1>Menu</h1>
+    </div>
+    <caption >Hover over a menu item to see it for yourself</caption>
+	<!-- many problems with this: the popover doesn't appear in the same location consistently; at first it is correct relative to table data, and upon second click relative to button-->
+    <tr>
+        <th> <button type="button" class="btn btn-primary" title="Burger and Fries" 
+				data-container="body" 
+				data-content="<img class='img-responsive' src='images/burger-and-fries.jpg'>"
+				data-html="true" 
+				data-placement="right" 
+				data-trigger="hover" 
+				data-toggle="popover"> <!--I guess this last part is what kind of event output you get-->
+<!-- data container and data-html didnt' seem to be necessary, since deletion didn't change functionality -->
+
+
+
+
+
+Burger and Fries
+</button></th>
+        <th><button type="button" class="btn btn-primary" title="Hot Dog and Chips" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/hotdog-and-chips.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Hot Dog and Chips
+</button></th>
+        <th><button type="button" class="btn btn-primary" title="House Salad" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/house-salad.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+House Salad
+</button></th>       
+    </tr>
+    <tr>
+        <td>An Amercan Classic!<br> Your choice - with or without cheese<br>Pickle, onion, tomato, and lettuce<br>Served withour famouse thick cut<br>french fries<br>$7.95</td>
+        <td>A Summer Classic!<br>Your choice - white or wheat bun <br> Relish, mustard, and ketchup<br>Served with our house-made chips<br>$7.95</td>
+        <td>An All-Time Favorite!<br>Your choice - mild or spicy<br>Cole Slaw<br>Served with garlic mashers<br>$10.95</td>
+    </tr>
+
+    <tr>
+        <th><button type="button" class="btn btn-primary" title="Italian Sausage and Peppers" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/italian-sausage-and-peppers.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Italian Sausange and Peppers
+</button></th>
+        <th><button type="button" class="btn btn-primary" title="Brisket Sandwich and Fries" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/brisket-sandwich-and-fries.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Brisket Sandwich and Fries
+</button></th>
+        <th><button type="button" class="btn btn-primary" title="Tenderloin Sandwich and Chips" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/tenderloin-sandwich-and-chips.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Tenderloin Sandwich and Chips
+</button></th>       
+    </tr>
+    <tr>
+        <td>Really Hits the Spot<br>Plain or Sesame Seed Bun<br>Pickle, onion, tomato and lettuce<br>Served with our house-made chips<br>$8.95</td>
+        <td>On the Lighter Side<br>Your choice - with or without cheese<br>Iceberg lettuce, tomatoes, peppers<br>Thousand Island or Ranch Dressing<br>Served with a dinner roll<br>$6.95</td>
+        <td>A Taste of Texas<br>Smoked Brisket on thick-cut Texas<br>Toast<br>Cole Slaw<br>Served with our famouse thick-cut<br>french fries<br>$7.95</td>
+    </tr>
+
+</table>
+    </div>
+
+    <!-- END FOOD MENU-->
+<!--Beverages table-->
+
+    <div>
+        <table id="beverages"> 
+            <thead>
+                <tr>
+                    <th rowspan="2">Beverages</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Root Beer</td>
+                    <td>$3.00</td>
+                </tr>
+                <tr>
+                    <td>Water</td>
+                    <td>$1.25</td>
+                </tr>
+                <tr>
+                    <td>Lemonade</td>
+                    <td>$1.00</td>
+                </tr>
+                <tr>
+                    <td>Iced Tea</td>
+                    <td>$1.25</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <!--END  BEVERAGES TABLE-->
+			<img src="images/non_alcoholic_beverages.jpg" alt="beverages" style="height:100px; width=50px; margin-left:20px;">
+
+    <hr>
+
+<!--WANT ALL OF THIS IN A ROW: THE FORM AND THE MAP-->
+<div class="row">
+    
+
+<div class="col-md-4 col-offset-2">
+<!--GOOGLE SHIT BEGINNING-->
+<div class="container">
+	<div class="row-fluid">
+        <div class="span8">
+        	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.583395646992!2d-73.99038888459391!3d40.74919167932784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9307d2691%3A0x5577c8273a9c03ee!2sBroadway+%26+6th+Ave%2C+New+York%2C+NY+10001!5e0!3m2!1sen!2sus!4v1502376159603" width="310" height="170" frameborder="0" style="border:0" allowfullscreen></iframe> <!-- an iFrame is like a window into another website; in this case, google maps -->
+    	</div>
+    	
+      	<div class="span4">
+    		<h2>Address</h2>
+    		<address>
+    			<strong>NightHawks</strong><br>
+    			Broadway and 6th Ave<br>
+    			New York, New York<br>
+    			10001<br> 			
+    			<abbr title="Phone">P:</abbr> 212 555 5555
+    		</address>
+    	</div>
+    </div>
+</div>    
+</div> <!--SECOND COL END-->
+<div class="col-md-4 col-offset-2">
+    <img class="img-responsive img-circle" src="images/nighthawks-logo.jpg" >
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--this is the popover script -->
+<script type="text/javascript">
+	$(document).ready(function () { 
+		$('[data-toggle="popover"]').popover();
+	});
+</script>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

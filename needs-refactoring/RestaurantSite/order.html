@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<!-- Useful stuff
+
+	1. Form den -- creates a bootstrap form with a GUI
+		https://formden.com/form-builder/
+		It creates its own bootstrap style tag as well -- see below
+	2. jQuery
+		In the same way that NetBeans simplifies compiling and running a Java class, jQuery seems to simplify JS
+
+
+
+-->
+
+<!-- Difficulties
+	
+	1. Stopping the page from resetting upon submitting the order form
+		-resolved: added return false; in the function called by onsubmit (see jQUery below). See prevent default
+			see https://tinyurl.com/ydh8kcnz
+	2. Adding space between the image associated with the beverages image and the beverages table. See margins
+	3. The div I try to stop displaying in the start appears for a split second upon loading
+		resolved: added inline style tag style="display:none". This respects the load time and avoids the chicken egg problem
+	4. Putting space between the pickup/delivery buttons and the footer when the div is hidden -- add margin to top buttons
+
+-->
+
+<html>
+<head>
+    <title>Place an Order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+	<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
+	<!-- Inline CSS based on choices in "Settings" tab -->
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+    
+	    
+    <link href="styles/restaurantStyles.css" rel="stylesheet">
+    
+    
+    <!-- blocked out for bootstrap testing
+    <style>
+         {font-family: Georgia;}
+        table {border: 1px solid red;}
+    </style>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--Attempt at Jquery scripting-->
+
+<script>
+
+	//note that jquery syntax includes the # and . for id and class
+	$(document).ready(function(){
+		$("#place-order").click(function(){
+			$("#order-form").fadeOut("fast").delay(1000);
+			$("#upon-completion").fadeIn("slow");
+		});
+
+		$("#order-form").submit(function(e){
+			e.preventDefault();
+		});
+
+		$("#pickup").click(function(){
+			$("#startImg").fadeOut("slow").delay(1500);
+			$("#order-form").fadeIn("fast");
+			$("#on-delivery").hide();
+		});
+		
+		$("#deliver").click(function(){
+			$("#startImg").fadeOut("slow").delay(1500);
+			$("#order-form").fadeIn("fast");
+			$("#on-delivery").show();
+		});
+	});
+
+
+
+
+	
+
+</script>
+
+
+<script type="text/javascript" src="js/order-form.js"></script>
+
+</head>
+
+<body onload="start();">
+    <div class="container-fluid">
+    <header>
+        <!--BEGIN BANNER-->
+    <h1 class="banner">NightHawks</h1>
+    <nav class="navbar navbar-inverse">  
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"> NightHawks </a>
+            <!--this spot not good for order form button-->
+        </div>
+        <div class="container-fluid">
+            <a href="order.html" id="order-btn" class="btn btn-warning navbar-btn navbar-right">Order Online</a>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"> <span class="glyphicon glyphicon-home"> Home </span></a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <!--this line not a good spot for order form button-->
+        </div>
+        
+        <div class="jumbotron">
+  		<div class="container text-center">
+  			<h1 id="jumbo-header">This Month</h1>
+              
+              <div class="row">
+  				<div class="col-md-4">
+                      <h2 class="special-header">The Witching Hour</h2>
+  					<blockquote>
+  						<p>Come at 3am with a witch-related item, get half off any menu item</p>
+  						
+  					</blockquote>
+  				</div>
+  				<div class="col-md-4">
+                    <h2 class="special-header">Midnight Snacks</h2>  
+                    <blockquote>
+  						<p>Bring a snack from home at midnight to trade for any item on our snack menu</p>
+  						
+  					</blockquote>
+  				</div>
+  				<div class="col-md-4">
+                    <h2 class="special-header">Dieter's Delight</h2>  
+                    <blockquote>
+  						<p>Bring proof that you have lost weight in the past month, and we will give you half off any salad</p>
+  						
+  					</blockquote>
+  				</div>
+  			</div><!-- End row -->
+
+  		</div><!-- End container -->
+  	</div><!-- End jumbotron-->
+    </nav> <!--End Navbar-->
+    </header>
+	
+<!-- BEGIN MAIN CONTENT -->
+
+<div class="container text-center">
+	<h1> Place an Order </h1>
+	<div class="btn-group" style="margin-bottom:100px">
+		<button class="btn btn-lg btn-warning" id="pickup" >Pick Up</button>
+		<button class="btn btn-lg btn-info" id="deliver" >Delivery</button>
+	</div>
+</div>
+
+<div class="container text-center" style="margin-bottom:100px;" id="startImg">
+		<img class="center" style="border: 4px solid purple;"src="images/nighthawks.jpg" width="" height="">
+</div>
+
+<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="formden_header">
+     <!--use style tag in div to stop the div from appearing -->
+	<!-- BEGIN FORM -->
+    <form method="post" name="order-form" id="order-form" onsubmit="place();" style="display:none;">
+     <div class="form-group ">
+      <label class="control-label requiredField" for="yourName">
+       Name
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="yourName" name="yourName" type="text"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="yourAddress">
+       Address
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="yourAddress" name="yourAddress" type="text"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="yourPhone">
+       Phone
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="yourPhone" name="yourPhone" type="text"/>
+     </div>
+     <div class="form-group" id="on-delivery">
+      <label class="control-label requiredField" for="yourTime">
+       Time for Delivery
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="yourTime" name="yourTime" type="text"/>
+      <span class="help-block" id="hint_yourTime">
+       Roughly what time do you want your food?
+ include am or pm
+      </span>
+     </div>
+     <div class="form-group" id="div_entree">
+      <label class="control-label " for="entree">
+       Entrees
+      </label>
+      <div class=" ">
+       <label class="checkbox-inline">
+        <input name="entree" type="checkbox" value="Burger"/>
+        Burger
+       </label>
+       <label class="checkbox-inline">
+        <input name="entree" type="checkbox" value="Chicken"/>
+        Chicken
+       </label>
+       <label class="checkbox-inline">
+        <input name="entree" type="checkbox" value="Fish"/>
+        Fish
+       </label>
+      </div>
+     </div>
+     <div class="form-group" id="div_side">
+      <label class="control-label " for="side">
+       Side
+      </label>
+      <div class=" ">
+       <label class="checkbox-inline">
+        <input name="side" type="checkbox" value="Fries"/>
+        Fries
+       </label>
+       <label class="checkbox-inline">
+        <input name="side" type="checkbox" value="Slaw"/>
+        Slaw
+       </label>
+       <label class="checkbox-inline">
+        <input name="side" type="checkbox" value="Salad"/>
+        Salad
+       </label>
+      </div>
+     </div>
+     <div class="form-group" id="div_drink">
+      <label class="control-label " for="drink">
+       Drink
+      </label>
+      <div class=" ">
+       <label class="checkbox-inline">
+        <input name="drink" type="checkbox" value="Water"/>
+        Water
+       </label>
+       <label class="checkbox-inline">
+        <input name="drink" type="checkbox" value="Soda"/>
+        Soda
+       </label>
+       <label class="checkbox-inline">
+        <input name="drink" type="checkbox" value="Beer"/>
+        Beer
+       </label>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="notes">
+       Notes
+      </label>
+      <textarea class="form-control" cols="40" id="notes" name="notes" rows="10"></textarea>
+      <span class="help-block" id="hint_notes">
+       Any special delivery instructions or changes to your order (extra pickles, no ice, etc) go here....
+      </span>
+     </div>
+     <div class="form-group">
+      <div class="btn-group">
+       <button class="btn btn-primary" id="place-order" type="submit" >Place Order</button>
+       <button class="btn btn-primary btn-danger"  id="reset-order" type="reset"> Start Over </button> <!-- replaced name attributes with ids to allow jquery to select them-->
+       
+      </div>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="container text-center" id="upon-completion" style="margin-bottom:100px";>
+	<h1> Order Complete! </h1>	
+</div>
+
+<!-- footer -->		
+<div class="row" style="margin-bottom:50px">
+  <div class="col-sm-2 col-offset-4">
+      <!--address-->
+
+    		<h2>Address</h2>
+    		<address>
+    			<strong>NightHawks</strong><br>
+    			Broadway and 6th Ave<br>
+    			New York, New York<br>
+    			10001<br> 			
+    			<abbr title="Phone">P:</abbr> 212 555 5555
+    		</address>
+        </div>
+      <div class="col-sm-4 col-offset-2">
+    <img class="img-responsive img-circle" src="images/nighthawks-logo.jpg" width="300" height="200">
+      </div>
+  </div> <!--END ROW--> <!-- end footer -->
+
+
+		
+	</div> <!-- END CONTAINER-->
+
+
+
+
+</body>
+</html>

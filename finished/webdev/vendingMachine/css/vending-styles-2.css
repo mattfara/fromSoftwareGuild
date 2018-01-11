@@ -1,0 +1,40 @@
+#header-bg-image{
+  background-image: url('../img/potatoChips.jpg');
+  background-position: center center;
+  background-size: cover;
+  height: 200px; /* optional */
+}
+
+#header-h1{
+  font-size: 6em;
+  font-family: 'Pacifico', cursive;
+}
+
+#main-product-col{
+  padding-top: 20px;
+  background-image: url('../img/emptyVendingMachine.jpg');
+  background-position: center center;
+  background-size: cover;
+  /*height: 200px; /* optional */
+}
+
+#main-control-col{
+  padding-left: 50px;
+  /*background-image: url('../img/vendingKeyPad.jpg');
+  background-position: center center;
+  background-size: cover;*/
+
+}
+
+.product {
+  width:200px;
+  height:200px;
+  border: 1px solid red;
+  /*margin: 50px;*/
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background-color: blue;
+  font-size: 25px;
+  font-style: oblique;
+  color: yellow
+}

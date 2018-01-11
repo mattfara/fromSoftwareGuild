@@ -1,0 +1,5 @@
+Code Review notes for HealthyHearts
+
+//1 Here I assign the float variable targetMin to maxHeartRate times 0.5 rounded. The lower case f stands for float. We have a method with the signature round for its name and in this case a float for a parameter in its parameter list. Another round method can take a double as its parameter, though they have the same method name in their signature. So were, I assign an age of 50 to age, the integer maximumHeartRate would be 170, and 170*0.85 is 144.5. The desired output is an integer, however. First I round this float up to 145.0. using the round method.
+
+//2 To get rid of the decimal answer, I convert the float to an integer using casting. Casting is necessary when you are trying to convert a more expansive data type to a narrower one, like a float to an integer or a long to an integer. The syntax is such that the desired new data type is written in parentheses just before the value or expression that is more expansive. So in this case 145.0 is cast to 145

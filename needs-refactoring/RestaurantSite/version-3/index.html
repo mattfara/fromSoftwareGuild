@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>NightHawks </title>
+	<meta name="description" content="NightHawks">
+
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	
+     
+<!-- added script tags to call jquery and bootstrap js data -->
+      <!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<link href="css/anythingslider.css" rel="stylesheet">
+
+<style type="text/css">
+/* New in version 1.7+ */
+ #slider3 {
+  width: 500px;
+  height: 400px;
+  list-style: none;
+ }
+ /* images with caption */
+ #slider3 img {
+  width: 100%;
+  height: 100%;
+ }
+ /* position the panels so the captions appear correctly */
+ #slider3 .panel { position: relative; }
+ /* captions */
+ #slider3 .caption-top, #slider3 .caption-right,
+ #slider3 .caption-bottom, #slider3 .caption-left {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+  opacity: .8;
+  filter: alpha(opacity=80);
+ }
+ /* Top caption - padding is included in the width (480px here, 500px in the script), same for height */
+ #slider3 .caption-top {
+  left: 0;
+  top: 0;
+  width: 480px;
+  height: 30px;
+ }
+ /* Right caption - padding is included in the width (130px here, 150px in the script), same for height */
+ #slider3 .caption-right {
+  right: 0;
+  bottom: 0;
+  width: 130px;
+  height: 180px;
+ }
+ /* Bottom caption - padding is included in the width (480px here, 500px in the script), same for height */
+ #slider3 .caption-bottom {
+  left: 0;
+  bottom: 0;
+  width: 480px;
+  height: 30px;
+ }
+ /* Left caption - padding is included in the width (130px here, 150px in the script), same for height */
+ #slider3 .caption-left {
+  left: 0;
+  bottom: 0;
+  width: 130px;
+  height: 180px;
+ }
+ /* Caption close button */
+ .caption-top .close, .caption-right .close,
+ .caption-bottom .close, .caption-left .close {
+  font-size: 80%;
+  cursor: pointer;
+  float: right;
+  display: inline-block;
+ }
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar --> 
+                  <!-- navbar-inverse makes it black -->
+								  <!--navbar-fixed-top makes the navbar stick to top on scrolling--> 	
+<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+	<div class="container"> 
+		<div class="navbar-header">
+			
+			<a href="" class="navbar-brand">NightHawks</a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> 
+
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>	
+
+			</button>
+
+
+		</div><!-- Navbar Header end -->
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<a href="" class="btn btn-warning navbar-btn navbar-right">Order Ahead & Delivery</a>
+			<ul class="nav navbar-nav">
+				<li><a href="#feedback">Home</a></li>
+				<li><a href="#gallery">Menu</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+</navbar>
+
+<! -- Jumbotron -->
+<div class="jumbotron">
+	<div class="container text-center">
+		<h1>NightHawks</h1>
+		<p> Updates for Gluttons </p>
+
+
+
+	</div> <!-- END CONTAINER-->
+</div> <!-- END JUMBOTRON-->
+
+		<!-- CAROUSEL BEGIN-->
+<ul id="slider3">
+  <li>
+   <div class="caption-top">
+    We're opening a new location! See address below
+   </div>
+   <img src="images/caro-1.jpg" alt="">
+  </li>
+  <li>
+   <img src="images/fall.jpg" alt="">
+   <div class="caption-left">
+    Stay tuned for our seasonal menu
+   </div>
+  </li>
+  <li>
+   <img src="images/aguardiente.jpg" alt="">
+   <div class="caption-top">
+    The Drink of the Month is the SG Special Brew
+   </div>
+  </li>
+ </ul>
+<!-- CAROUSEL END-->
+
+
+<!-- SET UP FOR JQUERY AND BOOTSTRAP -->
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>	
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+<script>
+// Load this when the DOM is ready
+$(function(){
+  // You used .myCarousel here. 
+  // That's the class selector not the id selector,
+  // which is #myCarousel
+  $('#myCarousel').carousel();
+});
+</script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- jQuery -->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+ <!-- Anything Slider optional plugins -->
+ <script src="js/jquery.easing.1.2.js"></script>
+
+ <!-- Anything Slider -->
+ 
+ <script src="js/jquery.anythingslider.min.js"></script>
+
+ <!-- Anything Slider optional FX extension -->
+ <script src="js/jquery.anythingslider.fx.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+ $('#slider3')
+  .anythingSlider()
+  /* this code will make the caption appear when you hover over the panel
+    remove the extra statements if you don't have captions in that location */
+  .find('.panel')
+    .find('div[class*=caption]').css({ position: 'absolute' }).end()
+    .hover(function(){ showCaptions( $(this) ) }, function(){ hideCaptions( $(this) ); });
+
+  showCaptions = function(el){
+    var $this = el;
+    if ($this.find('.caption-top').length) {
+      $this.find('.caption-top')
+        .show()
+        .animate({ top: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-right').length) {
+      $this.find('.caption-right')
+        .show()
+        .animate({ right: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-bottom').length) {
+      $this.find('.caption-bottom')
+        .show()
+        .animate({ bottom: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-left').length) {
+      $this.find('.caption-left')
+        .show()
+        .animate({ left: 0, opacity: 1 }, 400);
+    }
+  };
+  hideCaptions = function(el){
+    var $this = el;
+    if ($this.find('.caption-top').length) {
+      $this.find('.caption-top')
+        .stop()
+        .animate({ top: -50, opacity: 0 }, 350, function(){
+          $this.find('.caption-top').hide(); });
+    }
+    if ($this.find('.caption-right').length) {
+      $this.find('.caption-right')
+        .stop()
+        .animate({ right: -150, opacity: 0 }, 350, function(){
+          $this.find('.caption-right').hide(); });
+    }
+    if ($this.find('.caption-bottom').length) {
+      $this.find('.caption-bottom')
+        .stop()
+        .animate({ bottom: -50, opacity: 0 }, 350, function(){
+          $this.find('.caption-bottom').hide(); });
+    }
+    if ($this.find('.caption-left').length) {
+      $this.find('.caption-left')
+        .stop()
+        .animate({ left: -150, opacity: 0 }, 350, function(){
+          $this.find('.caption-left').hide(); });
+    }
+  };
+
+  // hide all captions initially
+  hideCaptions( $('#slider3 .panel') );
+});
+</script>
+
+
+</body>	
+</html>

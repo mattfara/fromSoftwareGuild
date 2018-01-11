@@ -1,0 +1,256 @@
+
+<!-- 
+Restaurant site V5 notes
+1. adding bootstrap by using link to file in my computer
+
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></script>    
+    <!-- commenting out original css stylesheet to better see impact of bootstrap
+    <link href="styles/restaurantStyles.css" rel="stylesheet">
+    -->
+    
+    <!-- blocked out for bootstrap testing
+    <style>
+         {font-family: Georgia;}
+        table {border: 1px solid red;}
+    </style>
+-->
+</head>
+
+
+<body>
+    <div class="container-fluid"
+    <header>
+    <h1 class="banner">NightHawks</h1>
+    
+    <!--using bootstrap to use tabs/pills and adding a jumbotron-->
+    <!--found navs.less - gonna try .nav-tabs -->
+    
+    <nav class="navbar navbar-inverse">  
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"> NightHawks </a>
+        </div>
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"> <span class="glyphicon glyphicon-home"> Home </span></a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="jumbotron">
+            <h1>New location coming August 22</h1>
+            <p>one block from the Empire State Building</p>
+        </div>
+    </nav>
+    
+    
+    </header>
+    <div class="container-fluid">
+<table id="menu" class="table">
+	<caption >Hover over a menu item to see it for yourself</caption>
+    <tr>
+        <th> <button type="button" class="btn btn-primary" title="Burger and Fries" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/burger-and-fries.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Burger and Fries
+</button></th>
+        <th><button type="button" class="btn btn-primary" title="Hot Dog and Chips" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/hotdog-and-chips.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Hot Dog and Chips
+</button></th>
+        <th><button type="button" class="btn btn-primary" title="House Salad" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/house-salad.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+House Salad
+</button></th>       
+    </tr>
+    <tr>
+        <td>An Amercan Classic!<br> Your choice - with or without cheese<br>Pickle, onion, tomato, and lettuce<br>Served withour famouse thick cut<br>french fries<br>$7.95</td>
+        <td>A Summer Classic!<br>Your choice - white or wheat bun <br> Relish, mustard, and ketchup<br>Served with our house-made chips<br>$7.95</td>
+        <td>An All-Time Favorite!<br>Your choice - mild or spicy<br>Cole Slaw<br>Served with garlic mashers<br>$10.95</td>
+    </tr>
+
+    <tr>
+        <th><button type="button" class="btn btn-primary" title="Italian Sausage and Peppers" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/italian-sausage-and-peppers.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Italian Sausange and Peppers
+</button></th>
+        <th><button type="button" class="btn btn-primary" title="Brisket Sandwich and Fries" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/brisket-sandwich-and-fries.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Brisket Sandwich and Fries
+</button></th>
+        <th><button type="button" class="btn btn-primary" title="Tenderloin Sandwich and Chips" 
+				data-container="body"				
+				data-content="<img class='img-responsive' src='images/tenderloin-sandwich-and-chips.jpg'>"
+				data-html="true"
+				data-placement="right"
+				data-trigger="hover"
+				data-toggle="popover">
+
+
+
+Tenderloin Sandwich and Chips
+</button></th>       
+    </tr>
+    <tr>
+        <td>Really Hits the Spot<br>Plain or Sesame Seed Bun<br>Pickle, onion, tomato and lettuce<br>Served with our house-made chips<br>$8.95</td>
+        <td>On the Lighter Side<br>Your choice - with or without cheese<br>Iceberg lettuce, tomatoes, peppers<br>Thousand Island or Ranch Dressing<br>Served with a dinner roll<br>$6.95</td>
+        <td>A Taste of Texas<br>Smoked Brisket on thick-cut Texas<br>Toast<br>Cole Slaw<br>Served with our famouse thick-cut<br>french fries<br>$7.95</td>
+    </tr>
+
+</table>
+    </div>
+<!--Beverages table-->
+
+    <div>
+        <table id="beverages" style="float:left"> <!-- increase margin to get space btw this and img-->
+            <thead>
+                <tr>
+                    <th rowspan="2">Beverages</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Root Beer</td>
+                    <td>$3.00</td>
+                </tr>
+                <tr>
+                    <td>Water</td>
+                    <td>$1.25</td>
+                </tr>
+                <tr>
+                    <td>Lemonade</td>
+                    <td>$1.00</td>
+                </tr>
+                <tr>
+                    <td>Iced Tea</td>
+                    <td>$1.25</td>
+                </tr>
+            </tbody>
+        </table>
+		<img class="animated swing" src="images/non_alcoholic_beverages.jpg" alt="beverages" style="height:100px; widht=50px">
+    </div>
+    <hr>
+
+<div class="container">
+	<div class="row-fluid">
+        <div class="span8">
+        	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.583395646992!2d-73.99038888459391!3d40.74919167932784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9307d2691%3A0x5577c8273a9c03ee!2sBroadway+%26+6th+Ave%2C+New+York%2C+NY+10001!5e0!3m2!1sen!2sus!4v1502376159603" width="310" height="170" frameborder="0" style="border:0" allowfullscreen></iframe>
+    	</div>
+    	
+      	<div class="span4">
+    		<h2>Address</h2>
+    		<address>
+    			<strong>NightHawks</strong><br>
+    			Broadway and 6th Ave<br>
+    			New York, New York<br>
+    			10001<br> 			
+    			<abbr title="Phone">P:</abbr> 212 555 5555
+    		</address>
+    	</div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript"> 
+	$(document).ready(function () { //first one tried from Indian fellow
+		$('[data-toggle="popover"]').popover();
+	});
+//	$( function(){
+	//	$("button").popover()
+	//} );
+</script>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

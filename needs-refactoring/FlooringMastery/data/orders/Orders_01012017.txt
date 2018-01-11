@@ -1,0 +1,3 @@
+OrderNumber,CustomerName,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+4,Jeff,OH,6.25,Wood,1,5.15,4.75,5.15,4.75,0.618750,10.518750
+5,James,MI,5.75,Laminate,88,1.75,2.10,154.00,184.80,19.481000,358.281000

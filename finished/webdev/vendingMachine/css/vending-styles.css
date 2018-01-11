@@ -1,0 +1,31 @@
+
+
+.product {
+  width:200px;
+  height:200px;
+  border: 3px solid red;
+  margin: 50px;
+  margin-right: 200px;
+  box-sizing: border-box;
+  background-color: blue;
+  opacity: 0.8;
+  font-size: 25px;
+  font-style: oblique;
+  color: yellow;
+}
+
+.prodName, .prodPrice, .prodQuantity {
+  margin: 10px;
+
+}
+
+#main-product-col{
+  background-image: url('../img/snacks.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+.hovering-on-item{
+  background-color: red;
+  color: red
+}

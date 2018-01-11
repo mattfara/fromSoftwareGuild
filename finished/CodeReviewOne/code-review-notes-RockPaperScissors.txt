@@ -1,0 +1,54 @@
+Code Review Notes for RockPaperScissors
+
+
+//1  This is the main method for the program. I'll talk about the main method in more detail in the SummativeSums class.
+
+//2 here i declare several variables of the same type with only typing the data type once, separating the identifiers by commas. The data type distributes to each identifier in the list. I think this style helps organize the variables semantically, and also sequentially in that in every game, first I ask for the rounds, then collect both players's moves, and then increment one of the score tallies.
+
+//3 This is ASCII art similar to what we saw in one of the earlier assignments. You can write whatever you want, and the site will convert it to ASCII art like this, which you can simply paste into your code.
+
+//4 I use several println with no argument just to create a space in the output. The format is easier to read this way. Is there a better way?
+
+//5 while (true) {} the code block of a while loop runs so long as the given condition is true, and true is always true, so this will loop forever unless explicitly broken. Most while loops are not guaranteed to run, but this one is. I'll show you how the loop terminates at the end of the program.
+
+//6 as soon as we step into the while block, the scores are initialized or assigned to a value of zero. This allows for repeating games without the previous games's scores carrying over.
+
+//7 This is our first boolean expression with the greater-than relational operator comparing the variable rounds to 10. If this condition evaluates to true, the code block will execute; otherwise, it will not. Should the first boolean expression evaluate to false, the boolean expression on line 65 will be tested.
+
+//8 The break statement breaks out of the while (true) loop and ends the game. The loop will break if either condition in this if then else statement evaluates to true.
+
+//9 this is the one for-loop I used to model rounds of game play. The initialization consists of initializing an integer, i, to one. This number represents the current round being played. The termination expression relates i to the rounds variable, such that the for loop terminates when it is no longer the case that i is less than or equal to rounds. Finally, i increments with the unary operator at the end of each round.
+
+//10 The computer's move is chosen through calling the nextInt method on the rand object we initialized at the top of the program. The argument passed to the method is like the number of balls placed in a hat, numbered starting from zero, much like how slots in an array are labeled. So in this case there would be three balls in the hat, labeled 0, 1, and 2. The computer pulls one of these numbers from the hat. 0 is not a valid choice for us, and we want to be able to get a 3, so we just add one to whatever ball's number the computer pulls from the hat. 
+
+//11 This if statement checks that the user's input is appropriate. The boolean expression uses two relational operators, less than and greater than, and one boolean operator, or. So if the integer userMove is less than one or greater than 3, we execute the if block
+
+//12 Since I want to repeat the round if the user enters an illegal value, I need to neutralize the increment that happens at the end of every iteration of the for loop. I do this by explicitly doing a decrement on the integer i in the if block.
+
+//13 The continue statement skips processing the remainder of the code in its block for that particular iteration. So the for loop will repeat but with the same round owing to the decrement operator  in line 88.
+
+//14 I use two switch statements to help print the user's choice of move and the computer's choice of move to the console. In the first switch, the condition is the user's move. The switch block contains cases corresponding to the three numbers the user could have chosen. If the first case evaluates to true, that is, the user move is equal to one, then the code associated with that case will run. 
+
+//15 A break statement is necessary to prevent falling through, which is when multiple cases might run. There's no danger of that in this situation. 
+
+//16 I wondered why a default case would be necessary in this situation, and luckily Eric set me straight. Although the values the user can select are constrained, it would be theoretically possible for other people to alter my code at a later date, in which case illegal values might find themselves in the switch. Lastly, I used the System.err.println() to emphasize that this result must be some problem with the system or code itself rather than with the user's choice of input.
+
+//17 here we have another if statement which begins with a boolean expression comparing the integer representing the user's move to the computer's move. If they are the same, the if block will execute.
+
+//18 this is the unary operator which increments the integer value of ties by one. This and the print line below will execute if the if the boolean expression evaluates to true.
+=
+//19 the boolean expression is more complex than the last. Whereas the first expression only used the == relational operator, this expression uses the == operator and several boolean operators, the and and the or. [USE BOARD TO EXPLAIN]. Essentially, if any of the relational expressions joined by the or operator are true, the entire boolean expression evaluates to true. [operand 1 || operand 2]
+
+//20 if neither of the previous boolean expressions evaluated to true, the else block will execute.
+
+//21 Last Friday I contacted one of the alumni about his fizzbuzz solution. I remember during the orientation before classes began that he found a way to solve the fizzbuzz problem in a very small number of lines. He sent me his code and it used something like this: [a==b ? x:y]. This is called a ternary expression and it only got a brief mention in one of the lessons. As you can see, it acts on three operands: the boolean expression, outcome one, and outcome three. Ternary implies three because of the ter-prefix, like the word tertiary. If the boolean expression evaluates to true, if a is equal to b, then the code to the left of the colon executes. If the expression evaluates to false, the code on the right executes. So this is just a compressed if then else statement. This is sometimes frowned upon because it can reduce the readability of your code, but I think this is a good use case. Since I print out how many rounds were played at the end of the game, I ran into the issue of printing "After 1 rounds" plural. So what I did was test whether the integer rounds is equal to one. If so, I print a "null" string; otherwise, I print an "s". So multiple rounds get the plural and a single round would not. 
+
+//22 this is yet another if statement. The boolean expression checks whether the number of wins for the user are the same as that of the computer, and the block would tell us that if so.
+
+//23 the next statement determines whether the user had more wins than the computer, and if so executes the block below.
+
+//24 If neither of the preceding boolean expressions evaluated to true, then the else block executes.
+
+//25 The last if statement of the game asks whether the string captured from the user is equal to "n", meaning that the user does not want to play again.
+
+//26 If so, all of the messages in the block print, and most importantly, the while (true) loop is broken, thus terminating the program. If the user chose yes (or anything other than "n"), the code inside the while loop would repeat, first resetting all the scores back to zero, and then again asking how many rounds the user wants to play

@@ -1,0 +1,38 @@
+header {margin:150px auto;}
+footer {margin: 20px auto;}
+body {
+	background-image: url("../images/nighthawks.jpg");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment: fixed;
+}
+.banner {font-family: 'Kumar One', cursive;}
+th {font-size: 120%;}
+td {color: white;}
+#menu {background-color: red;}
+/*.content {background-color: yellow;}*/
+#fullName, #customerEmail, #customerPhone, #reason {font-weight: bold;}
+#beverages{
+    margin: 40px;
+    padding: 20px;
+    background: blue;
+}
+
+
+
+/*
+#beverages th, #beverages td {
+    background: blue;
+    
+    }
+*/
+
+/*link behavior*/
+a:link{color:purple;}
+a:visited{color: orange;}
+a:hover{font-weight: bold;}
+a:active{text-decoration:none;}
+
+
+/*revisit ordering of link calls....LVHA*/
+

@@ -1,0 +1,10 @@
+#jumbo-header {
+	color:red;
+	background: black;
+	font-family: serif;
+	border: solid red 3px;
+}
+
+.special-header {text-decoration:underline;}
+
+#beverages {float:left;}

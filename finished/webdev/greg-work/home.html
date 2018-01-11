@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Page</title>
+  <!-- Bootstrap core CSS -->
+  <link href="sass/app.scss" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom-styles.css" />
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- not sure how to get all the bootstrap/sass components wired in -->
+
+
+</head>
+
+<body>
+  <div class="container-fluid" id="outermost">
+    <div class="row">
+      <!-- MAIN ROW -->
+      <!-- contains two columns-->
+      <div class="col-md-offset-2 col-md-5" id="left-col">
+        <main id="main" class="main" role="main">
+          <article>
+            <section>
+              <header>
+                <!-- for photo, category, title -->
+                <figure class="frontispiece">
+                  <!-- remove height and width attributes once sass is up and running -->
+                  <img alt="Illuminated light bulb" src="https://static.pexels.com/photos/383673/pexels-photo-383673.jpeg" />
+                  <figcaption><i>Lightning struck....</i></figcaption>
+                </figure>
+                <p class="category">
+                  New Ideas
+                </p>
+                <p class="article-title">
+                  <h1>Teaching English to Speakers of Latin</h1>
+                </p>
+              </header>
+              <footer>
+                <a href="http://ak-cache.legacy.com/usercontent/lmw/33147/1b7979a23736466f8247b2ab445a0edb.jpg" rel="author">Bob Rhine</a>
+                <time pubdate datetime="2016-12-08">December 8, 2016</time>
+              </footer>
+            </section>
+            <hr>
+            <section class="main-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, nisi a luctus ornare, odio sapien pretium felis, vel volutpat tellus massa eget justo. Suspendisse non tortor sed velit ornare lacinia sit amet vel elit. Suspendisse congue nisi eget
+                consequat ultricies. Curabitur dapibus, mi non sagittis bibendum, urna sem euismod tortor, id bibendum ligula mauris vitae lorem. Nulla bibendum vulputate nisi, vestibulum tempus velit tempor vel. Etiam ac nulla ut augue auctor malesuada
+                non ac sem. Pellentesque diam lorem, fringilla a elit eget, laoreet blandit elit. Donec eu nisl suscipit, congue orci id, varius lacus. Nullam vitae aliquam libero, nec placerat ex.</p>
+              <p>
+                Ut efficitur et turpis non hendrerit. Donec ultrices erat nec porttitor luctus. Sed dapibus nisl turpis, in aliquam arcu rutrum at. Integer iaculis ut urna vel lobortis. Proin in arcu porta, aliquet dolor eget, euismod lectus. Maecenas orci quam, semper
+                in semper eu, lacinia nec sapien. Aliquam imperdiet vitae sem ac faucibus. Mauris at gravida turpis.</p>
+              <p>
+                Nulla nisi ipsum, cursus ut mauris eget, bibendum volutpat metus. Proin sagittis ante ut ex auctor dapibus. Etiam sit amet metus pretium leo viverra lobortis. Suspendisse sollicitudin in neque ut blandit. Nunc eros nibh, elementum varius tincidunt sed,
+                laoreet non erat. Nam eu mi nec tortor sagittis ornare eu lacinia diam. Donec facilisis nunc eu mollis ullamcorper. Sed vitae efficitur arcu. Mauris eu ullamcorper orci. Ut vitae nibh sit amet lorem porta sollicitudin sit amet nec urna.
+                Proin ut imperdiet neque. Praesent volutpat posuere vestibulum.</p>
+              <p>
+                Proin et magna sodales libero porttitor bibendum auctor eget libero. Nam at pretium felis. Proin a hendrerit tellus. Nulla facilisi. Sed lacinia imperdiet erat, ut pretium nulla bibendum nec. Vestibulum nulla sem, commodo vel ornare id, efficitur ac sem.
+                Donec id condimentum elit, ac dignissim libero. Pellentesque ac enim purus. Quisque semper ligula eu ex egestas, sed dictum libero dapibus. Donec sollicitudin aliquet lacus. Donec id quam volutpat, egestas enim tempor, fringilla nisi.
+                Curabitur purus tellus, hendrerit in diam at, semper mollis lacus. Nam non mauris metus. Vestibulum imperdiet sit amet metus ut dictum.</p>
+            </section>
+            <hr>
+            <footer id="bottom">
+              <span>Published:<b>December 8, 2016</b> </span>
+              <span>Issues: <b style="color:red">New Ideas </b></span>
+              <span>Categories: <b style="color:red">Latin, English</b></span>
+              <span>Tags: <b style="color:red">latin, spelling</b></span>
+            </footer>
+          </article>
+        </main>
+      </div>
+      <!-- end left col-->
+
+      <div class="col-md-offset-1 col-md-2" id="right-col">
+        <!-- RIGHT COL -->
+
+        <div class="row">
+          <div class="col-md-12">
+            <aside id="latest-articles">
+              <h2><i>Latest Articles</i></h2>
+
+              <img src="https://images.pexels.com/photos/348689/pexels-photo-348689.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="Some plants in rows" />
+              <ul class="list-with-no-bullets">
+                <!-- I assume jQuery would generate the <li> children in this <ul> from a database.... -->
+                <li>
+                  <a>A Nice Weekend</a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices vel metus vitae bibendum. Nulla vitae elit quis tortor dictum iaculis. Vestibulum ullamcorper nisl non tempor pharetra. Vivamus id lacus....</p>
+                </li>
+                <li>
+                  <a>The Last of the Mohicans</a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices vel metus vitae bibendum. Nulla vitae elit quis tortor dictum iaculis. Vestibulum ullamcorper nisl non tempor pharetra. Vivamus id lacus....</p>
+                </li>
+                <li>
+                  <a>Looking a Bit Peaked</a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices vel metus vitae bibendum. Nulla vitae elit quis tortor dictum iaculis. Vestibulum ullamcorper nisl non tempor pharetra. Vivamus id lacus....</p>
+                </li>
+                <li>
+                  <a>To Find it, You Must Seek it</a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices vel metus vitae bibendum. Nulla vitae elit quis tortor dictum iaculis. Vestibulum ullamcorper nisl non tempor pharetra. Vivamus id lacus....</p>
+                </li>
+              </ul>
+              <a class="red-bold"> +MORE ARTICLES</a>
+            </aside>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            <aside id="additional-content">
+              <h2> <i>Additional Content</i> </h2>
+              <ul class="list-with-no-bullets">
+                <li>
+                  <a>Latest Twitter Posts</a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </li>
+                <li>
+                  <a>Podcast</a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </li>
+                <li>
+                  <a>Facebook Live</a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+
+      </div>
+      <!-- end right col -->
+    </div>
+    <!-- end main row -->
+  </div>
+  <!-- #5: Placed at the end of the document so the pages load faster -->
+
+
+
+</body>
+
+</html>

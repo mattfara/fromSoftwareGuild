@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/mvc
+          http://www.springframework.org/schema/mvc/spring-mvc.xsd
+          http://www.springframework.org/schema/tx
+          http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/aop  
+          http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+    <!-- Bean definitions go here -->
+    <!--
+            UserIO myIo = new UserIOConsoleImpl(); 
+        VendingMachineDao myDao = new VendingMachineDaoFileImpl();
+        VendingMachineAuditDao myAuditDao = new VendingMachineAuditDaoFileImpl();
+
+        VendingMachineServiceLayer myService = new VendingMachineServiceLayerImpl(myDao, myAuditDao);
+        VendingMachineView myView = new VendingMachineView(myIo);
+
+        VendingMachineController controller = new VendingMachineController(myService, myView);
+        -->
+        
+        <bean id="io" class="com.tsguild.basics.vendingmachine.ui.UserIOConsoleImpl"/>
+        <bean id="dao" class="com.tsguild.basics.vendingmachine.dao.VendingMachineDaoFileImpl"/>
+        <bean id="auditDao" class="com.tsguild.basics.vendingmachine.dao.VendingMachineAuditDaoFileImpl"/>
+        <bean id="view" class="com.tsguild.basics.vendingmachine.ui.VendingMachineView">
+            <constructor-arg ref="io"/>
+        </bean>
+        <bean id="service" class="com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayerImpl">
+            <constructor-arg ref="dao"/>
+            <constructor-arg ref="auditDao"/>
+        </bean>
+        <bean id="controller" class="com.tsguild.basics.vendingmachine.controller.VendingMachineController">
+            <constructor-arg ref="service"/>
+            <constructor-arg ref="view"/>
+        </bean>
+        
+        <!-- advice beans -->
+        <bean id="loggingAdvice" class="com.tsguild.basics.vendingmachine.advice.LoggingAdvice">
+            <constructor-arg ref="auditDao"/>
+        </bean>
+<!--        <bean id="statsAdvice" class="com.tsguild.basics.vendingmachine.advice.InventoryStatsAdvice">
+            <constructor-arg ref="service"/>
+        </bean>-->
+        
+        <aop:config>
+            <aop:aspect ref="loggingAdvice">
+              <aop:after-returning
+                  method="createAuditEntry"
+                  pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))"
+               />
+
+              <aop:after-returning
+                  method="createAuditEntry"
+                  pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))"
+              />
+              
+              <aop:after-returning
+                  method="createAuditEntry"
+                  pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))"
+              />
+              <aop:after-returning
+                  method="createAuditEntry"
+                  pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.buyProduct(..))"
+              />
+              <aop:after
+                  method="createAuditEntry"
+                  pointcut="execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.returnChange(..))"
+              />
+               <!--for the exception logging -->
+               <!-- one each for Insufficient funds, Product out o stock, not found respectively -->
+              <aop:after-throwing 
+                method="createAuditEntryForExceptions"
+                pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.buyProduct(..))"
+                throwing="ex"
+              />
+            </aop:aspect>
+<!--            <aop:aspect ref="statsAdvice">
+                 want to try making this more efficient 
+                    by focusing on the update methods more closely - don't want to update
+                    everything when only one field is updated
+                    
+                    can probably use the || operator to reduce pointcut
+                
+                
+                 cases when to run all recalculations 
+                    1. new product added
+                    2. product removed
+                    to do this I'd need the || in the point cut for add and remove,
+                    but each of the 9 recalculate methods would need its own aop:after-returning
+                    
+                    
+                    cases when to run a single recalculation
+                    
+                    1. when a product is updated
+                        - need to look up which method focuses on a particular field - which package? view?
+                        
+                        couldn't i just add the update to the 
+                
+                
+                
+                <aop:after-returning 
+                    method="recalculateMinCalories"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateCalories(..))"
+                />
+                <aop:after-returning 
+                    method="recalculateMaxCalories"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateCalories(..))"
+                />
+                <aop:after-returning 
+                    method="recalculateAvgCalories"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateCalories(..))"
+                />
+                <aop:after-returning 
+                    method="recalculateMinVolume"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateVolumeInLiters(..))"
+                />
+                <aop:after-returning 
+                    method="recalculateMaxVolume"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateVolumeInLiters(..))"
+                />
+                <aop:after-returning 
+                    method="recalculateAvgVolume"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateVolumeInLiters(..))"
+                />
+                
+                <aop:after-returning 
+                    method="recalculateMinPrice"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateProductPrice(..))"
+                />
+                <aop:after-returning 
+                    method="recalculateMaxPrice"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateProductPrice(..))"
+                />
+                <aop:after-returning 
+                    method="recalculateAvgPrice"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.addProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.removeProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.service.VendingMachineServiceLayer.updateProduct(..))
+                                || execution(* com.tsguild.basics.vendingmachine.ui.VendingMachineView.updateProductPrice(..))"
+                />
+                <aop:before 
+                    method="recalculateMinCalories"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+                <aop:before 
+                    method="recalculateMaxCalories"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+                <aop:before 
+                    method="recalculateAvgCalories"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+                <aop:before 
+                    method="recalculateMinVolume"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+                <aop:before 
+                    method="recalculateMaxVolume"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+                <aop:before 
+                    method="recalculateAvgVolume"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+                <aop:before 
+                    method="recalculateMinPrice"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+                <aop:before 
+                    method="recalculateMaxPrice"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+                <aop:before 
+                    method="recalculateAvgPrice"
+                    pointcut="execution(* com.tsguild.basics.vendingmachine.controller.VendingMachineController.run(..))"
+                />
+            </aop:aspect>-->
+            
+        </aop:config>
+</beans>

@@ -1,0 +1,6 @@
+2017-09-17T22:31:13.158 : buyProduct: Slot Number : 1 Title: Coke Price: 125 Stock: 46
+ |EXCEPTION: InsufficientFundsException: ERROR: You need to insert more money
+2017-09-17T22:34:33.005 : addProduct: 3Slot Number : 3 Title: Fanta Price: 75 Stock: 22
+2017-09-17T22:35:03.627 : updateProduct: Slot Number : 3 Title: Fanta Price: 75 Stock: 0
+2017-09-17T22:35:36.613 : buyProduct: Slot Number : 3 Title: Fanta Price: 75 Stock: 0
+ |EXCEPTION: ProductOutOfStockException: ERROR: That item is out of stock. Please choose another

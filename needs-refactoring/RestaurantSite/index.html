@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+
+<!-- Useful stuff
+	
+	1. AnythingSlider
+		good tutorial: https://tinyurl.com/y8rcteky
+		uses a list group with a special id to do all the magic
+		requires jQuery library in the head
+	2. 
+
+-->
+
+<!-- Difficulties
+
+	1. Design -- Placement of elements -- the whole thing looks like shit. How would I develop a better eye for this?
+		--award winning designs: http://www.csswinner.com/winners
+	2. Sizing of elements -- how can I make the NightHawks painting image larger without it spilling out of the bootstrap column?
+-->
+
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>NightHawks </title>
+	<meta name="description" content="NightHawks">
+
+	
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	
+     
+<!-- added script tags to call jquery and bootstrap js data -->
+      <!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<link href="css/anythingslider.css" rel="stylesheet">
+
+
+<!-- Styles for Anything Slider-->
+<style type="text/css">
+/* New in version 1.7+ */
+ #slider3 {
+  width: 500px;
+  height: 400px;
+  list-style: none;
+ }
+ /* images with caption */
+ #slider3 img {
+  width: 100%;
+  height: 100%;
+ }
+ /* position the panels so the captions appear correctly */
+ #slider3 .panel { position: relative; }
+ /* captions */
+ #slider3 .caption-top, #slider3 .caption-right,
+ #slider3 .caption-bottom, #slider3 .caption-left {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+  opacity: .8;
+  filter: alpha(opacity=80);
+ }
+
+ #slider3 .caption-top {
+  left: 0;
+  top: 0;
+  width: 480px;
+  height: 30px;
+ }
+
+ #slider3 .caption-right {
+  right: 0;
+  bottom: 0;
+  width: 130px;
+  height: 180px;
+ }
+
+ #slider3 .caption-bottom {
+  left: 0;
+  bottom: 0;
+  width: 480px;
+  height: 30px;
+ }
+
+ #slider3 .caption-left {
+  left: 0;
+  bottom: 0;
+  width: 130px;
+  height: 180px;
+ }
+
+ .caption-top .close, .caption-right .close,
+ .caption-bottom .close, .caption-left .close {
+  font-size: 80%;
+  cursor: pointer;
+  float: right;
+  display: inline-block;
+ }
+</style>
+<link href="styles/restaurantStyles.css" rel="stylesheet">
+</head>
+
+<!--                BODY                    -->
+<body>
+    
+<div class="container-fluid">
+    <header>
+        <!--BEGIN BANNER-->
+    <h1 class="banner">NightHawks</h1>
+    <nav class="navbar navbar-inverse">  
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"> NightHawks </a>
+            <!--this spot not good for order form button-->
+        </div>
+        <div class="container-fluid">
+            <a href="order.html" id="order-btn" class="btn btn-warning navbar-btn navbar-right">Order Online</a>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html"> <span class="glyphicon glyphicon-home"> Home </span></a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <!--this line not a good spot for order form button-->
+        </div>
+        
+        <div class="jumbotron">
+  		<div class="container text-center">
+  			<h1 id="jumbo-header">This Month</h1>
+              
+              <div class="row">
+  				<div class="col-md-4">
+                      <h2 class="special-header">The Witching Hour</h2>
+  					<blockquote>
+  						<p>Come at 3am with a witch-related item, get half off any menu item</p>
+  						
+  					</blockquote>
+  				</div>
+  				<div class="col-md-4">
+                    <h2 class="special-header">Midnight Snacks</h2>  
+                    <blockquote>
+  						<p>Bring a snack from home at midnight to trade for any item on our snack menu</p>
+  						
+  					</blockquote> <!-- just use div for this -->
+  				</div>
+  				<div class="col-md-4">
+                    <h2 class="special-header">Dieter's Delight</h2>  
+                    <blockquote>
+  						<p>Bring proof that you have lost weight in the past month, and we will give you half off any salad</p>
+  						
+  					</blockquote>
+  				</div>
+  			</div><!-- End row -->
+
+  		</div><!-- End container -->
+  	</div><!-- End jumbotron-->
+    </nav> <!--End Navbar-->
+    </header>
+
+    
+
+    <div class="content container">
+        <h1> Welcome! </h1>
+        <div class="row-fluid">
+            <div class="col-sm-4">    
+                <img class="center" style="border: 4px solid purple;"src="images/nighthawks.jpg" width="" height="">
+            </div>
+            <div class="col-sm-4">
+                <p>
+                    <strong>NYC is the city where stomachs never sleep. So neither does NightHawks. Open around the clock to serve you breakfast, lunch, dinner, and a midnight snack.</strong>
+                </p>
+            </div>
+        
+                            <!-- CAROUSEL BEGIN-->
+<div class="col-sm-4">                            
+<ul id="slider3">
+  <li>
+   <!-- Note this caption is before the image, all others it is after -->
+   <div class="caption-top">
+    We're opening a new location! See address below
+   </div>
+   <img src="images/caro-1.jpg" alt="">
+  </li>
+  <li>
+   <img src="images/fall.jpg" alt="">
+   <div class="caption-left">
+    As summer surrenders, our food will follow suit. Stay tuned for our seasonal menu
+   </div>
+  </li>
+  <li>
+   <img src="images/aguardiente.jpg" alt="">
+   <div class="caption-top">
+    The Drink of the Month is the SG Special Brew
+   </div>
+  </li>
+ </ul>
+</div>
+</div>
+    </div>
+
+<!-- CAROUSEL END-->
+
+<div class="row">
+  <div class="col-sm-4 col-offset-2">
+      <!--address-->
+
+    		<h2>Address</h2>
+    		<address>
+    			<strong>NightHawks</strong><br>
+    			Broadway and 6th Ave<br>
+    			New York, New York<br>
+    			10001<br> 			
+    			<abbr title="Phone">P:</abbr> 212 555 5555
+    		</address>
+        </div>
+      <div class="col-sm-4 col-offset-2">
+    <img class="img-responsive img-circle" src="images/nighthawks-logo.jpg" width="300" height="200">
+      </div>
+  </div> <!--END ROW--> 
+
+
+
+
+    <!-- SET UP FOR JQUERY AND BOOTSTRAP -->
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>	
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+<script>
+// Load this when the DOM is ready
+$(function(){
+  // You used .myCarousel here. 
+  // That's the class selector not the id selector,
+  // which is #myCarousel
+  $('#myCarousel').carousel();
+});
+</script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- jQuery -->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+ <!-- Anything Slider optional plugins -->
+ <script src="js/jquery.easing.1.2.js"></script>
+
+ <!-- Anything Slider -->
+ 
+ <script src="js/jquery.anythingslider.min.js"></script>
+
+ <!-- Anything Slider optional FX extension -->
+ <script src="js/jquery.anythingslider.fx.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+ $('#slider3')
+  .anythingSlider()
+  /* this code will make the caption appear when you hover over the panel
+    remove the extra statements if you don't have captions in that location */
+  .find('.panel')
+    .find('div[class*=caption]').css({ position: 'absolute' }).end()
+    .hover(function(){ showCaptions( $(this) ) }, function(){ hideCaptions( $(this) ); });
+
+  showCaptions = function(el){
+    var $this = el;
+    if ($this.find('.caption-top').length) {
+      $this.find('.caption-top')
+        .show()
+        .animate({ top: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-right').length) {
+      $this.find('.caption-right')
+        .show()
+        .animate({ right: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-bottom').length) {
+      $this.find('.caption-bottom')
+        .show()
+        .animate({ bottom: 0, opacity: 1 }, 400);
+    }
+    if ($this.find('.caption-left').length) {
+      $this.find('.caption-left')
+        .show()
+        .animate({ left: 0, opacity: 1 }, 400);
+    }
+  };
+  hideCaptions = function(el){
+    var $this = el;
+    if ($this.find('.caption-top').length) {
+      $this.find('.caption-top')
+        .stop()
+        .animate({ top: -50, opacity: 0 }, 350, function(){
+          $this.find('.caption-top').hide(); });
+    }
+    if ($this.find('.caption-right').length) {
+      $this.find('.caption-right')
+        .stop()
+        .animate({ right: -150, opacity: 0 }, 350, function(){
+          $this.find('.caption-right').hide(); });
+    }
+    if ($this.find('.caption-bottom').length) {
+      $this.find('.caption-bottom')
+        .stop()
+        .animate({ bottom: -50, opacity: 0 }, 350, function(){
+          $this.find('.caption-bottom').hide(); });
+    }
+    if ($this.find('.caption-left').length) {
+      $this.find('.caption-left')
+        .stop()
+        .animate({ left: -150, opacity: 0 }, 350, function(){
+          $this.find('.caption-left').hide(); });
+    }
+  };
+
+  // hide all captions initially
+  hideCaptions( $('#slider3 .panel') );
+});
+</script>
+
+</body>
+</html>
